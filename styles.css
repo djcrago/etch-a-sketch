@@ -1,0 +1,7 @@
+#container {
+    display: flex;
+    border: 2px solid red;
+    margin: 10px;
+    height: 700px;
+    flex: auto;
+}
