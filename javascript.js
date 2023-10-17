@@ -1,10 +1,10 @@
 const grid = document.querySelector('#container');
-let n = 16;
-let j = (n ** 2);
-console.log(j);
+let n = 16; //size of grid - n x n
+let size = (n ** 2); //total number of squares in grid
+console.log(size);
 
-function createSquares() {
-    for (let i = 0; i < j; i++) {
+function createSquares(size) {
+    for (let i = 0; i < size; i++) { //create j number of squares
         const square = document.createElement('div');
         square.classList.toggle('square');
         square.style.height = ((500/n) + 'px');
@@ -14,15 +14,13 @@ function createSquares() {
 }
 
 function removeSquares() {
-    for (let i = 0; i < j; i++) {
-        const squares = Array.from(grid.querySelectorAll('.square'));
-        for (square of squares) {
-            grid.removeChild(square);
-        }
+    const squares = Array.from(grid.querySelectorAll('.square'));
+    for (square of squares) { //remove all squares from grid
+        grid.removeChild(square);
     }
 }
 
-createSquares();
+createSquares(size);
 const squares = (Array.from(grid.querySelectorAll('.square'))).map((square) => {
     square.addEventListener('mouseover', () => {
         square.style.backgroundColor = 'black';
@@ -32,6 +30,9 @@ const squares = (Array.from(grid.querySelectorAll('.square'))).map((square) => {
 const reset = document.querySelector('#reset');
 console.log(reset);
 reset.addEventListener('click', () => {
-    // n = prompt('Size: ');
     removeSquares();
+    let newSize
+    do {
+        newSize = +prompt('Size: ');
+    } while (newSize > 100 || newSize < 1);
 });
