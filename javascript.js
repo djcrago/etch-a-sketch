@@ -5,6 +5,7 @@ console.log(j);
 
 for (let i = 0; i < j; i++) {
     const square = document.createElement('div');
+    square.classList.toggle('square');
     square.style.cssText = 'color: blue; background-color: lightblue;';
     let h = (500/n) + 'px';
     square.style.height = h;
@@ -15,4 +16,11 @@ for (let i = 0; i < j; i++) {
 }
 console.log(grid);
 
-const square = grid.querySelector('div')
+const squares = Array.from(grid.querySelectorAll('.square'));
+console.log(squares);
+const sqrs = squares.map((square) => {
+    square.addEventListener('mouseover', () => {
+        square.style.color = 'white';
+        square.style.backgroundColor = 'black';
+    });
+});
