@@ -22,7 +22,8 @@ function createSquares() {
         square.classList.toggle('square');
         square.style.cssText = `height: ${((gridWidth/gridSize) + 'px')}; width: ${((gridWidth/gridSize) + 'px')};`
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black';
+            let randomColor = addColor();
+            square.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
         })
         grid.appendChild(square);
     }
@@ -39,4 +40,12 @@ function removeSquares() {
     } while (gridSize > 100 || gridSize < 1);
     totalSquares = (gridSize ** 2);
     createSquares();
+}
+
+function addColor () {
+    let rgb = [0, 0, 0];
+    for (let i = 0; i < rgb.length; i++) {
+        rgb[i] = Math.floor(Math.random() * 255);
+    }
+    return rgb;
 }
