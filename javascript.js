@@ -1,43 +1,33 @@
 const grid = document.querySelector('#container');
-const resetButton = document.querySelector('#resetButton');
-
-let n = 16; //size of grid - n x n
-let size = (n ** 2); //total number of squares in grid
+let gridSize = 16; //size of grid == n x n
+let totalSquares = (gridSize ** 2); //total number of squares in grid
 
 createSquares();
-
-const squares = (Array.from(grid.querySelectorAll('.square'))).map(colorSquares);
-
-resetButton.addEventListener('click', () => {
-    removeSquares();
-    do {
-        n = +prompt('Size: ');
-    } while (n > 100 || n < 1);
-    size = (n ** 2);
-    createSquares();
-    const squares = (Array.from(grid.querySelectorAll('.square'))).map(colorSquares);
-});
+const resetButton = document.querySelector('#resetButton');
+resetButton.addEventListener('click', removeSquares);
 
 function createSquares() {
-    for (let i = 0; i < size; i++) { //create size number of squares
+    for (let i = 0; i < totalSquares; i++) {
         let square = document.createElement('div');
         square.classList.toggle('square');
-        square.style.height = ((500/n) + 'px');
-        square.style.width = ((500/n) + 'px');
+        square.style.height = ((500/gridSize) + 'px');
+        square.style.width = ((500/gridSize) + 'px');
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+        })
         grid.appendChild(square);
     }
 }
 
-function colorSquares(square) {
-    square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = 'black';
-    });
-}
-
 function removeSquares() {
     const squares = Array.from(grid.querySelectorAll('.square'));
-    for (square of squares) { //remove all squares from grid
+    for (square of squares) {
         square.classList.toggle('square');
         grid.removeChild(square);
     }
+    do {
+        gridSize = +prompt('Size: ');
+    } while (gridSize > 100 || gridSize < 1);
+    totalSquares = (gridSize ** 2);
+    createSquares();
 }
