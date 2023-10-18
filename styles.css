@@ -1,8 +1,37 @@
 #container {
-    display: flex;
-    border: 2px solid red;
-    margin: 10px;
-    height: 500px;
-    width: 500px;
+    display: flex;    
     flex-wrap: wrap;
+    margin: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    color: gold;
+    background-color: red;
+    font-size: larger;
+    font-weight: bold;
+    font-family: cursive,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    width: 50%;
+}
+
+.btn {
+    padding: 15px;
+    margin-left: 15px;
+    cursor: pointer;
 }
