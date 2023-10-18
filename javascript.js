@@ -21,10 +21,12 @@ function createSquares() {
         let square = document.createElement('div');
         square.classList.toggle('square');
         square.style.cssText = `height: ${((gridWidth/gridSize) + 'px')}; width: ${((gridWidth/gridSize) + 'px')};`
+        let a = 0;
+        let randomColor = addColor();
         square.addEventListener('mouseover', () => {
-            let randomColor = addColor();
-            square.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
-        })
+            square.style.backgroundColor = `rgba(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]}, ${a += 0.1})`;
+            // square.style.backgroundColor = `rgba(0, 0, 0, ${a += 0.1})`;
+        });
         grid.appendChild(square);
     }
 }
