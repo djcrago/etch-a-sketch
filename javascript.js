@@ -31,16 +31,14 @@ function createSquares() {
 }
 
 function removeSquares() {
-    const squares = Array.from(grid.querySelectorAll('.square'));
     do {
-        if (gridSize < 1) {
+        gridSize = +prompt('New board = size x size\nSize: ');
+        if (gridSize === 0) {
             return;
-        } else {
-            gridSize = +prompt('New board = size x size\nSize: ');
-            console.log(gridSize);
         }
     } while (gridSize > 100 || gridSize < 1);
     totalSquares = (gridSize ** 2);
+    const squares = Array.from(grid.querySelectorAll('.square'));
     for (square of squares) {
         square.classList.toggle('square');
         grid.removeChild(square);
