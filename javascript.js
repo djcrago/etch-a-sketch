@@ -25,7 +25,6 @@ function createSquares() {
         let randomColor = addColor();
         square.addEventListener('mouseover', () => {
             square.style.backgroundColor = `rgba(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]}, ${a += 0.1})`;
-            // square.style.backgroundColor = `rgba(0, 0, 0, ${a += 0.1})`;
         });
         grid.appendChild(square);
     }
@@ -33,14 +32,19 @@ function createSquares() {
 
 function removeSquares() {
     const squares = Array.from(grid.querySelectorAll('.square'));
+    do {
+        if (gridSize < 1) {
+            return;
+        } else {
+            gridSize = +prompt('New board = size x size\nSize: ');
+            console.log(gridSize);
+        }
+    } while (gridSize > 100 || gridSize < 1);
+    totalSquares = (gridSize ** 2);
     for (square of squares) {
         square.classList.toggle('square');
         grid.removeChild(square);
     }
-    do {
-        gridSize = +prompt('Size: ');
-    } while (gridSize > 100 || gridSize < 1);
-    totalSquares = (gridSize ** 2);
     createSquares();
 }
 
