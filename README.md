@@ -1,12 +1,19 @@
-Below is a summary of all the things I learned or practiced in creating this website.
+# Etch a Sketch
 
-- Referencing elements with querySelector
-- Setting cssText in JS
-- Creating elements in JS
-- Setting attributes in JS
-- Adding EventListeners
-- Appending and removing children in JS
-- Assigning rbg values randomly
-- Incrementing opacity values over multiple interactions
-- Creating a grid of squares using input by the user
-- Creating an array from a node list
+This repository houses a etch-a-sketch app where users can draw in random colors on a grid of a size of their choosing.
+The live website can be found here: https://djcrago.github.io/etch-a-sketch/
+
+Screenshot of Live Website:
+![Screenshot of website this repository houses](./website-screenshot.png?raw=true 'Website Screenshot')
+
+## Features
+
+- Elements referenced with querySelector
+- Creating, styling, and setting attributes on elements in JavaScript
+- Appending and removing elements in JavaScript
+- Randomly assigned rgb values
+- Opacity values incremented over multiple interactions
+
+## License
+
+The project is licensed under the ISC license.
